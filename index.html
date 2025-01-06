@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My.Collection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <button class="back-button">←</button>
+            <h1 class="title">Racun Shoppe</h1>
+        </div>
+        <input type="text" class="search-bar" placeholder="Cari Link" id="searchBar" onkeyup="searchProducts()">
+    </header>
+
+    <!-- Product Grid -->
+    <main class="product-grid" id="productGrid">
+        <!-- Example of a single product card -->
+        <div class="product-card">
+            <a href="https://s.shopee.co.id/4L3VwSs73k" target="_blank">
+                <img src="WhatsApp Image 2025-01-06 at 15.15.31_9d8afe27.jpg" alt="Product Image" class="product-image">
+            </a>
+            <p class="product-title">1. Kemeja Linen Lengan Panjang Pria</p>
+        </div>
+        <div class="product-card">
+            <a href="https://example-link2.com" target="_blank">
+                <img src="https://via.placeholder.com/150" alt="Product Image" class="product-image">
+            </a>
+            <p class="product-title">31. Kemeja Putih Linen Crinkle</p>
+        </div>
+        <div class="product-card">
+            <a href="https://example-link3.com" target="_blank">
+                <img src="https://via.placeholder.com/150" alt="Product Image" class="product-image">
+            </a>
+            <p class="product-title">30. CELANA SCUBA CUTBRAY HIGH WAIST</p>
+        </div>
+        <div class="product-card">
+            <a href="https://example-link4.com" target="_blank">
+                <img src="https://via.placeholder.com/150" alt="Product Image" class="product-image">
+            </a>
+            <p class="product-title">29. Outer balon flanel viral</p>
+        </div>
+        <!-- Add more product cards as needed -->
+    </main>
+
+    <script>
+        // JavaScript untuk pencarian produk
+        function searchProducts() {
+            // Ambil nilai input dari search bar
+            const searchQuery = document.getElementById("searchBar").value.toLowerCase();
+            // Ambil semua produk
+            const productCards = document.querySelectorAll(".product-card");
+
+            // Loop melalui semua produk dan tampilkan/hilangkan berdasarkan pencarian
+            productCards.forEach(card => {
+                const productTitle = card.querySelector(".product-title").textContent.toLowerCase();
+                if (productTitle.includes(searchQuery)) {
+                    card.style.display = "block"; // Tampilkan jika cocok
+                } else {
+                    card.style.display = "none"; // Sembunyikan jika tidak cocok
+                }
+            });
+        }
+    </script>
+</body>
+</html>
